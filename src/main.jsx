@@ -3,7 +3,7 @@ import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Background, Controls, Handle, MiniMap, Position, ReactFlow, ReactFlowProvider, useReactFlow } from '@xyflow/react'
 import dagre from '@dagrejs/dagre'
-import { BookOpen, Check, ChevronDown, ChevronLeft, ChevronRight, CircleHelp, ExternalLink, Focus, Github, Map, Menu, Moon, PanelLeftClose, PanelLeftOpen, RotateCcw, Search, Sun, X } from 'lucide-react'
+import { BookOpen, Check, ChevronDown, ChevronLeft, ChevronRight, CircleHelp, ExternalLink, Focus, Github, Map as MapIcon, Menu, Moon, PanelLeftClose, PanelLeftOpen, RotateCcw, Search, Sun, X } from 'lucide-react'
 import { Button } from './components/ui/button'
 import { Badge } from './components/ui/badge'
 import { Progress } from './components/ui/progress'
@@ -78,7 +78,7 @@ function Atlas(){
         <div className="sidebar-head"><span>CURRICULUM</span><Button variant="ghost" size="icon" onClick={()=>setMobile(false)} className="mobile-only"><X/></Button></div>
         <div className="sidebar-scroll">
           <label className="side-label">LEARNING PATH</label>
-          <button className={`path-row ${path==='all'?'active':''}`} onClick={()=>choosePath('all')}><Map/><span><strong>Complete atlas</strong><small>All {NODES.length} lessons</small></span></button>
+          <button className={`path-row ${path==='all'?'active':''}`} onClick={()=>choosePath('all')}><MapIcon/><span><strong>Complete atlas</strong><small>All {NODES.length} lessons</small></span></button>
           {PATHS.map((p,i)=><button key={p.id} className={`path-row ${path===p.id?'active':''}`} onClick={()=>choosePath(p.id)}><span className="path-icon">0{i+1}</span><span><strong>{p.title}</strong><small>{p.nodes.filter(id=>done.has(id)).length}/{p.nodes.length} complete</small></span></button>)}
           <Separator/><label className="side-label">DOMAINS</label>
           <button className={`domain-row ${category==='all'?'active':''}`} onClick={()=>setCategory('all')}><i className="domain-dot all"/>All domains<span>{NODES.length}</span></button>
